@@ -3,13 +3,8 @@ import { StyleSheet, Text, View, Image, ScrollView, FlatList ,ImageBackground} f
 import Carousel from 'react-native-snap-carousel';
 import LinearGradient from 'react-native-linear-gradient';
 import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../screen/Dimention/ScreenDimention'
-
-
-import {ONE} from './images/one.jpg';
-import {TWO} from './images/two.jpg';
-import {THREE} from './images/three.jpg';
-import {FOUR} from './images/four.jpg';
-
+import {VEG} from "./images/veg.png";
+import {NONVEG} from "./images/nonveg.png"
 
 const styles = new StyleSheet.create({
 
@@ -49,6 +44,12 @@ const styles = new StyleSheet.create({
         color: '#000000',
         fontWeight: '600',
         marginLeft: 25
+    },
+
+
+    menuContainer: {
+        marginLeft:25,
+
     }
  
 })
@@ -165,40 +166,199 @@ const HomeScreen = () => {
         </View>
 
       );
-
+{/* <a href="https://ibb.co/nPDMrqR"><img src="https://i.ibb.co/J3zjnWC/frank-holleman-7o-YPIMGUhj-A-unsplash.jpg" alt="frank-holleman-7o-YPIMGUhj-A-unsplash" border="0"></a>
+<a href="https://ibb.co/y0D47Hs"><img src="https://i.ibb.co/H70h35g/syed-f-hashemi-ht8-LS00-RUWA-unsplash.jpg" alt="syed-f-hashemi-ht8-LS00-RUWA-unsplash" border="0"></a>
+<a href="https://ibb.co/NTXKNLq"><img src="https://i.ibb.co/vXbkdJW/amirali-mirhashemian-ZSuk-CSw5-VV4-unsplash.jpg" alt="amirali-mirhashemian-ZSuk-CSw5-VV4-unsplash" border="0"></a>
+<a href="https://ibb.co/9VkCDqf"><img src="https://i.ibb.co/LJX2FCq/usman-yousaf-gqp-ACgn-OGBQ-unsplash.jpg" alt="usman-yousaf-gqp-ACgn-OGBQ-unsplash" border="0"></a> */}
 
       const recomended = [
           {
               foodName: 'Naan',
-              image: '',
-              price: '',
-              description:''
+              image: 'https://i.ibb.co/J3zjnWC/frank-holleman-7o-YPIMGUhj-A-unsplash.jpg',
+              price: '₹120',
+              description:"Naan + Paneer butter",
+              id:1,
+              category: 'veg'
           },
           {
             foodName: 'Butter Naan',
-            image: '',
-            price: '',
-            description:''
+            image: 'https://i.ibb.co/H70h35g/syed-f-hashemi-ht8-LS00-RUWA-unsplash.jpg',
+            price: '₹135',
+            description:"Butter Naan +Butter Chicken ",
+
+            id:2,
+            category: 'veg'
+
         },
         {
             foodName: 'Garlic Naan',
-            image: '',
-            price: '',
-            description:''
+            image: 'https://i.ibb.co/vXbkdJW/amirali-mirhashemian-ZSuk-CSw5-VV4-unsplash.jpg',
+            price: '₹112',
+            description:"Naan + Chicken butter",
+
+            id:3,
+            category: 'veg'
         },
         {
             foodName: 'Paneer Naan',
-            image: '',
-            price: '',
-            description:''
+            image: 'https://i.ibb.co/LJX2FCq/usman-yousaf-gqp-ACgn-OGBQ-unsplash.jpg',
+            price: '₹210',
+            description:"Naan + Paneer butter",
+
+
+            id:4,
+            category: 'veg'
         },
-        {
-            foodName: 'Rotti',
-            image: '',
-            price: '',
-            description:''
-        },
-      ]
+        // {
+        //     foodName: 'Rotti',
+        //     image: N1,
+        //     price: '',
+        //     description:'',
+        //     id:5,
+        //     category: 'veg'
+
+        // },
+      ];
+
+
+      const recomendedView = ({item}) => {
+            return(
+                <View
+                style={styles.menuContainer}
+                >
+                    <View
+                    style={{
+                        flexDirection: 'row',
+                        flex:2,
+                        justifyContent:'space-between'
+                    }}
+                    >
+        <View
+                    style={{
+                        marginTop:15
+                    }}
+                    >
+
+{item.category === 'veg' ? (
+                        <Image
+                        source={require('./images/nonveg.png')}
+                        />
+                    ):
+                    (
+                        null
+                    )
+                    }
+                    <Text
+                    style={{
+                        fontSize:18,
+                        fontWeight:'700',
+                        marginTop:8
+                    }}
+                    >
+                        {item.foodName}
+                        </Text>
+
+                        <Text
+                        style={{
+                            color: '#505050',
+                            fontSize: 18
+                        }}
+                        >
+                            {item.price}
+                            </Text>
+                            <Text
+                        style={{
+                            color: '#505050',
+                            fontSize: 12,
+                            marginTop:5
+                        }}
+                        >
+                            {item.description}
+                            </Text>
+                    </View>
+                    <View
+                    style={{
+                        marginTop:20,
+                        alignSelf:'flex-end',
+                        marginRight:25
+                    }}
+                    >
+                        <Image
+                        style={{height:90,width:110,borderRadius:8}}
+                        source={{uri: item.image}}
+                    />
+                           
+                           <View
+                    style={{
+                        alignItems:'center',
+                        marginTop:10
+                    }}
+                    >
+                        <View
+                        style={{
+                            flexDirection: 'row'
+                        }}
+                        >
+                            <View
+                            style={{
+                                height:28,
+                                width:42,
+                                backgroundColor:'#CAD5E2',
+                                justifyContent: 'center',
+                                alignItems:'center',
+                                borderTopLeftRadius:5,
+                                borderBottomLeftRadius:5
+                            }}
+                            >
+                                <Text
+                                style={{
+                                    fontSize:22,
+                                    
+                                }}
+                                >
+                                    -
+                                </Text>
+                            </View>
+                            <View
+                            style={{
+                                margin:5
+                            }}
+                            >
+                                <Text>
+                                    2
+                                </Text>
+                            </View>
+                            <View
+                            style={{
+                                height:28,
+                                width:42,
+                                backgroundColor:'#CAD5E2',
+                                justifyContent: 'center',
+                                alignItems:'center',
+                                borderTopRightRadius:5,
+                                borderBottomRightRadius:5
+                            }}
+                            >
+                                <Text
+                                style={{
+                                    fontSize:18,
+                                    
+                                }}
+                                >
+                                    +
+                                </Text>
+                            </View>
+                          
+                        </View>
+                    </View>
+                    
+                    </View>
+                    </View>
+            
+                 
+                </View>
+            )
+      } 
 
     return(
         <ScrollView
@@ -267,6 +427,15 @@ const HomeScreen = () => {
                 >
                     Recommended
                 </Text>
+                <View>
+                    <FlatList
+                    
+                    data={recomended}
+                    renderItem={recomendedView}
+                    keyExtractor={item => item.id}
+                    />
+
+                </View>
         </View>
         </ScrollView>
 
