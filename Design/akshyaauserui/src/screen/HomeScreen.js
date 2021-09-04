@@ -24,6 +24,7 @@ const styles = new StyleSheet.create({
     imgcontainer: {
         marginTop: 30,
         marginLeft:25,
+        
     },
     slide: {
         backgroundColor: '#000',
@@ -61,7 +62,7 @@ const HomeScreen = () => {
     const  renderItem = ({item, index}) => {
         return (
           
-            <View style={styles.slide}>
+            <View>
                             <LinearGradient
                             start={{x: 0, y: 0}} end={{x: 1, y: 0}} 
                     colors={["#fff", "#9FFCB0", "#31AE48"]}
@@ -178,7 +179,8 @@ const HomeScreen = () => {
               price: '₹120',
               description:"Naan + Paneer butter",
               id:1,
-              category: 'veg'
+              category: 'veg',
+              ex:false
           },
           {
             foodName: 'Butter Naan',
@@ -187,7 +189,8 @@ const HomeScreen = () => {
             description:"Butter Naan +Butter Chicken ",
 
             id:2,
-            category: 'veg'
+            category: 'veg',
+            ex:true
 
         },
         {
@@ -197,7 +200,8 @@ const HomeScreen = () => {
             description:"Naan + Chicken butter",
 
             id:3,
-            category: 'veg'
+            category: 'veg',
+            ex:false
         },
         {
             foodName: 'Paneer Naan',
@@ -207,7 +211,8 @@ const HomeScreen = () => {
 
 
             id:4,
-            category: 'veg'
+            category: 'veg',
+            ex:false
         },
         // {
         //     foodName: 'Rotti',
@@ -275,6 +280,24 @@ const HomeScreen = () => {
                         >
                             {item.description}
                             </Text>
+                            {item.ex === true ? (
+                                    <Text
+                                    style={{
+                                        color: '#F7CD2E',
+                                        fontSize: 15,
+                                        marginTop:5,
+                                        fontWeight:'bold'
+                                    }}
+                                    >
+                                    ⭐ BESTSELLER
+                                        </Text>
+                            ) : (
+                                null
+
+                            )
+
+                            }
+                          
                     </View>
                     <View
                     style={{
