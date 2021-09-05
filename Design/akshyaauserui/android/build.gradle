@@ -11,7 +11,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://maven.mapmyindia.com/repository/mapmyindia/'}
     }
     dependencies {
         classpath("com.android.tools.build:gradle:4.2.1")
