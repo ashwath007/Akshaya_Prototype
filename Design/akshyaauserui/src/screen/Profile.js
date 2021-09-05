@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text,ScrollView, TouchableOpacity } from 'react-native';
 import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../screen/Dimention/ScreenDimention'
-
+import LottieView from 'lottie-react-native';
 
 
 const styles = new StyleSheet.create({
@@ -59,11 +59,106 @@ const Profile = () => {
 
 
     return(
-        <View>
-            <Text>
-                Profile Page
+        <ScrollView
+        style={{
+            height: SCREEN_HEIGHT,
+            width: SCREEN_WIDTH,
+            backgroundColor:'#fff'
+        }}
+        >
+            <View
+            style={{
+                alignSelf:'center'
+            }}
+            >
+<LottieView 
+            style={{
+                height: 200,
+                marginTop: 15
+            }}
+            source={require('./images/user.json')} autoPlay loop />
+            
+            <Text
+            style={{
+                alignSelf:'center',
+                fontSize:28,
+                marginTop:18,
+                fontWeight:'600'
+            }}
+            >
+                Hi, Scarlett
             </Text>
-        </View>
+            <Text
+            style={{
+                alignSelf:'center',
+                fontSize:18,
+                marginTop:18,
+                fontWeight:'400'
+            }}
+            >
+                Account Details
+            </Text>
+            <Text
+            style={{
+                alignSelf:'center',
+                fontSize:18,
+                marginTop:18,
+                fontWeight:'400'
+            }}
+            >
+                8072002***
+            </Text>
+      
+            </View>
+
+    
+            <TouchableOpacity
+            
+            style={{
+                height:55,
+                width:300,
+                alignSelf:'center',
+                marginTop:80,
+                borderRadius:8,
+                backgroundColor:'#34B14B',
+                justifyContent:'center'
+            }}
+            >
+                <Text
+                style={{
+                    fontSize:18,
+                    color:'#fff',
+                    alignSelf:'center',
+                    fontWeight:'400'
+                }}
+                >
+                    View Order History
+                </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+            
+            style={{
+                height:55,
+                width:300,
+                alignSelf:'center',
+                marginTop:20,
+                borderRadius:8,
+                backgroundColor:'#34B14B',
+                justifyContent:'center'
+            }}
+            >
+                <Text
+                style={{
+                    fontSize:18,
+                    color:'#fff',
+                    alignSelf:'center',
+                    fontWeight:'400'
+                }}
+                >
+                    Logout
+                </Text>
+            </TouchableOpacity>
+        </ScrollView>
     )
 }
 

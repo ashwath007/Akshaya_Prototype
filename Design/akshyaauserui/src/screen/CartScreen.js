@@ -392,6 +392,8 @@ const CartScreen = () => {
           ref={(el) => (bottomSheetRef.current = el)}
           height={300}
           openDuration={250}
+          closeOnDragDown={true}
+      
          
         >
                 <ScrollView>

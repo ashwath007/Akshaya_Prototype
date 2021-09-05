@@ -190,6 +190,7 @@ dependencies {
       exclude group:'com.facebook.fbjni'
     }
     implementation project(':lottie-react-native')
+    implementation project(':mapmyindia-map-react-native-beta')
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
         exclude group:'com.squareup.okhttp3', module:'okhttp'
