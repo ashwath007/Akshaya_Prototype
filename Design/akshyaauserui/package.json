@@ -13,7 +13,6 @@
         "@react-navigation/material-bottom-tabs": "^6.0.5",
         "@react-navigation/native": "^6.0.2",
         "lottie-react-native": "^4.0.3",
-        "mapmyindia-map-react-native-beta": "^0.2.1",
         "radio-buttons-react-native": "^1.0.4",
         "react": "17.0.2",
         "react-native": "0.65.1",

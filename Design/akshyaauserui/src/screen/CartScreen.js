@@ -281,6 +281,155 @@ const CartScreen = () => {
             >
                 Your Cart Items Here
             </Text>
+            <View
+            style={{
+                width: 360,
+                height: 150,
+                backgroundColor:'#EF5354',
+                alignSelf: 'center',
+                borderWidth:1,
+                borderColor:'#FF6263',
+                borderRadius:12,
+                marginTop:25
+            }}
+        >
+            <View
+            style={{
+                flexDirection:'row'
+            }}
+            >
+                <View>
+                <LottieView 
+            style={{
+                height: 100,
+                marginTop: 5
+            }}
+            source={require('./images/food.json')} autoPlay loop />
+
+                </View>
+                <View
+                style={{
+
+                }}
+                >
+                    <Text
+                    style={{
+                        marginLeft:25,
+                        marginTop:35,
+                        fontSize:18,
+                        fontWeight:'600',
+                        color:'#fff'
+                    }}
+                    >
+                        Cooking
+                    </Text>
+                    <Text
+                    style={{
+                        marginLeft:25,
+                        fontStyle:'italic',
+                        color:'#ffffff',
+                        marginTop:8
+
+                    }}
+                    >
+                        It takes 16min to perpare
+                    </Text>
+                    </View>
+            </View>
+
+
+
+        </View>
+            <View>
+                    <Text
+                    style={{
+                        alignSelf:'center',
+                        marginTop:25,
+                        fontSize:18,
+                        fontWeight:'600'
+                    }}
+                    >
+                        Track Your Order
+                    </Text>
+                    <View
+                    style={{
+                        marginTop:15,
+                        flexDirection: 'row',
+                        backgroundColor:'#F5F5F5',
+                        paddingBottom:15,
+                        marginBottom:50
+                    }}
+                    >
+
+                    <View
+                   
+                    >
+                        <Text
+                        style={{
+                            marginLeft:45,
+                            marginTop:25,
+                            fontSize:18,
+                            fontWeight:'600'
+                        }}
+                        >
+                            Kumar
+                        </Text>
+                        <Text
+                        style={{
+                            marginLeft:45,
+                            marginTop:8,
+                            fontSize:16,
+                            fontStyle:'italic'
+                        }}
+                        >
+                            Delivery time 18min
+                        </Text>
+                    </View>
+                        <View
+                        style={{
+                            backgroundColor:'#C5E4CB',
+                            height:48,
+                            width:48,
+                            borderRadius:100,
+                            justifyContent:'center',
+                            alignItems:'center',
+                            marginTop:25,
+                            marginLeft:35
+                        }}
+                        >
+                            <MaterialCommunityIcons
+                                name='phone'
+                                style={{
+                                    fontSize:30
+                                }}
+                                color='#34B14B'
+                            />
+
+                        </View>
+                        <View
+                        style={{
+                            backgroundColor:'#C5E4CB',
+                            height:48,
+                            width:48,
+                            borderRadius:100,
+                            justifyContent:'center',
+                            alignItems:'center',
+                            marginTop:25,
+                            marginLeft:35
+                        }}
+                        >
+                            <MaterialCommunityIcons
+                                name='message'
+                                style={{
+                                    fontSize:30
+                                }}
+                                color='#34B14B'
+                            />
+
+                        </View>
+                    </View>
+
+            </View>
 
         <View>
            
@@ -390,10 +539,7 @@ const CartScreen = () => {
                     
                         <RBSheet
           ref={(el) => (bottomSheetRef.current = el)}
-          height={300}
-          openDuration={250}
-          closeOnDragDown={true}
-      
+          height={500}
          
         >
                 <ScrollView>
