@@ -1,7 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, FlatList ,ImageBackground} from 'react-native';
-
+import React,{useRef} from 'react';
+import { StyleSheet, Text, View, Image, ScrollView, FlatList ,ImageBackground, TouchableOpacity} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import RBSheet from "react-native-raw-bottom-sheet";
+import LottieView from 'lottie-react-native';
 import {SCREEN_HEIGHT, SCREEN_WIDTH} from '../screen/Dimention/ScreenDimention'
+import RadioButtonRN from 'radio-buttons-react-native';
 
 
 const styles = new StyleSheet.create({
@@ -56,7 +59,7 @@ const styles = new StyleSheet.create({
 
 const CartScreen = () => {
 
-
+    const bottomSheetRef = useRef([]);
     const recomendedView = ({item}) => {
         return(
             <View
@@ -247,7 +250,18 @@ const CartScreen = () => {
     ];
 
 
+
+    const payment_choise = [
+        {
+            label: 'Cash on delivery'
+        },
+        {
+            label: 'Pay via Card'
+        }
+    ]
+
     return(
+        <>
         <ScrollView
         style={styles.back}
         >
@@ -281,7 +295,265 @@ const CartScreen = () => {
 
                 </View>
         </View>
+
+
+
+            <View>
+
+                <Text
+                style={styles.generalTxt}
+                >
+                    APPLY COUPON 
+                </Text>
+
+                <View
+                style={{
+                    flexDirection: 'row',
+                    justifyContent:'space-between'
+                }}
+                >
+
+                <Text
+                style={styles.generalTxt}
+                >
+                    Item Total 
+                </Text>
+                <Text
+                style={{
+                    marginTop:25,
+                    fontSize:15,
+                    marginRight:25
+                }}
+                >
+                ₹255
+                </Text>
+                </View>
+                <View
+                style={{
+                    flexDirection: 'row',
+                    justifyContent:'space-between'
+                }}
+                >
+
+                <Text
+                style={styles.generalTxt}
+                >
+                    Delivery fee
+                </Text>
+                <Text
+                style={{
+                    marginTop:25,
+                    fontSize:15,
+                    marginRight:25
+                }}
+                >
+                ₹36
+                </Text>
+                </View>
+                <View
+                style={{
+                    borderBottomColor: '#919191',
+                    borderBottomWidth: 1,
+                    margin:25
+                }}
+                >
+                    </View>
+                <View
+                style={{
+                    flexDirection: 'row',
+                    justifyContent:'space-between'
+                }}
+                >
+
+                <Text
+                style={styles.generalTxt}
+                >
+                    To Pay
+                </Text>
+                <Text
+                style={{
+                    marginTop:25,
+                    fontSize:15,
+                    marginRight:25
+                }}
+                >
+                ₹36
+                </Text>
+                </View>
+
+              
+            </View>
+
+
+                
+
+                    
+                        <RBSheet
+          ref={(el) => (bottomSheetRef.current = el)}
+          height={300}
+          openDuration={250}
+          closeOnDragDown={true}
+      
+         
+        >
+                <ScrollView>
+            <View
+            style={{
+                alignItems:'center'
+            }}
+            >
+            <LottieView 
+            style={{
+                height: 100,
+                marginTop: 15
+            }}
+            source={require('./images/dman.json')} autoPlay loop />
+
+
+                </View>
+          <Text
+          style={styles.generalTxt}
+          >
+              Confirm your Address
+          </Text>
+          <View
+          style={{
+              height:55,
+              width:320,
+              backgroundColor:'#F5F5F5',
+              alignSelf:'center',
+              marginTop:14
+          }}
+          >
+
+              <Text
+              style={{
+                  margin: 10,
+                  alignSelf:'center',
+                  color:'#6F6F6F'
+              }}
+              >
+              30, Mettupalayam Road,, G N Mills Post, Coimbatore
+
+              </Text>
+        </View>
+   
+          <Text
+          style={styles.generalTxt}
+          >
+              Payment Method
+          </Text>
+              <View
+              style={{
+                  marginTop:15,
+    
+              }}
+              >
+                  <RadioButtonRN
+                  style={{paddingLeft:25,paddingRight:25,marginBottom:25}}
+                    data={payment_choise}
+                    selectedBtn={(e) => console.log(e)}
+                    />
+                
+              </View>
+              <View>
+                  <TouchableOpacity
+                  style={{
+                      width:360,
+                      alignSelf:'center',
+                      height: 55,
+                      borderRadius:12,
+                      backgroundColor:'#34B14B',
+                      justifyContent:'center'
+                  }}
+                  >
+                      <Text
+                      style={{
+                        alignSelf:'center',
+                        fontSize:18,
+                        color:'#fff'
+                      }}
+                      >
+                          Confirm Order
+                      </Text>
+                  </TouchableOpacity>
+              </View>
+              </ScrollView>
+
+
+        </RBSheet>
+                            
+           
+        <View
+        style={{
+            height: 80,
+            backgroundColor:'#F7F7F7',
+            margin:20,
+            padding:5,
+            borderRadius:8
+        }}
+        >
+
+
+
+
+           
+        <View
+        style={{
+            flexDirection:'row'
+        }}
+        >
+            <View
+            style={{
+                marginLeft:25,
+                marginTop:25
+            }}
+            >
+                </View>
+            
+        <MaterialCommunityIcons name="offer" color='#595959' size={38} style={{
+            marginTop:15
+        }} />
+        <View>
+            <Text
+            style={{
+                marginTop:25,
+                fontSize:15,
+                marginLeft:18
+            }}
+            >
+        Tip your delivery partner
+
+                </Text>
+            </View>
+            </View>
+        </View>
         </ScrollView>
+        <TouchableOpacity
+                    style={{
+                        backgroundColor:'#34B14B',
+                        height:60,
+                        marginTop:22,
+                        alignItems:'center',
+                        justifyContent:'center',
+
+                       
+
+                    }}
+
+                    onPress={() => bottomSheetRef.current.open()}
+                    >
+
+                        <Text
+                        style={{
+                            color:'#fff',
+                            fontSize:18
+                        }}
+                        >
+                            Make a Payment
+                        </Text>
+                    </TouchableOpacity>
+        </>
     )
 }
 
